@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Luxury Navy & Gold Color System */
+        --background: 218 23% 8%;           /* Deep navy background */
+        --foreground: 40 20% 95%;           /* Champagne white text */
+        
+        --card: 220 20% 12%;                /* Slightly lighter navy for cards */
+        --card-foreground: 40 20% 95%;
+        
+        --popover: 220 20% 12%;
+        --popover-foreground: 40 20% 95%;
+        
+        --primary: 42 78% 65%;              /* Champagne gold */
+        --primary-foreground: 220 23% 10%;
+        
+        --secondary: 220 18% 16%;           /* Lighter navy */
+        --secondary-foreground: 40 20% 95%;
+        
+        --muted: 220 15% 18%;
+        --muted-foreground: 40 8% 65%;
+        
+        --accent: 42 78% 65%;               /* Gold accent */
+        --accent-foreground: 220 23% 10%;
+        
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 40 20% 95%;
+        
+        --success: 142 71% 45%;
+        --success-foreground: 40 20% 95%;
+        
+        --border: 220 18% 20%;
+        --input: 220 18% 20%;
+        --ring: 42 78% 65%;
+        
+        --radius: 0.75rem;
+        
+        /* Custom Luxury Tokens */
+        --gold-glow: 42 78% 65%;            /* Gold with glow */
+        --navy-deep: 218 23% 8%;
+        --navy-light: 220 18% 16%;
+        --champagne: 40 20% 95%;
+        
+        /* Glassmorphism */
+        --glass-bg: 220 20% 12% / 0.6;
+        --glass-border: 220 18% 30% / 0.2;
+        
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, hsl(220 20% 12%), hsl(218 23% 8%));
+        --gradient-gold: linear-gradient(135deg, hsl(42 78% 65%), hsl(38 82% 58%));
+        --gradient-luxury: linear-gradient(135deg, hsl(220 20% 12%) 0%, hsl(218 23% 8%) 50%, hsl(220 20% 10%) 100%);
+        
+        /* Shadows */
+        --shadow-elegant: 0 20px 60px -10px hsl(220 23% 5% / 0.8);
+        --shadow-glow: 0 0 40px hsl(42 78% 65% / 0.15);
+        --shadow-glass: 0 8px 32px 0 hsl(220 23% 5% / 0.37);
+        
+        /* Transitions */
+        --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .light {
+        --background: 40 20% 98%;           /* Light champagne background */
+        --foreground: 220 23% 12%;
+        
+        --card: 0 0% 100%;
+        --card-foreground: 220 23% 12%;
+        
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 23% 12%;
+        
+        --primary: 220 23% 12%;             /* Navy as primary in light mode */
+        --primary-foreground: 40 20% 95%;
+        
+        --secondary: 40 15% 92%;
+        --secondary-foreground: 220 23% 12%;
+        
+        --muted: 40 10% 90%;
+        --muted-foreground: 220 15% 40%;
+        
+        --accent: 42 78% 58%;               /* Slightly darker gold for light mode */
+        --accent-foreground: 220 23% 12%;
+        
+        --border: 220 18% 88%;
+        --input: 220 18% 88%;
+        --ring: 220 23% 12%;
+        
+        --glass-bg: 255 255 255 / 0.7;
+        --glass-border: 220 18% 80% / 0.3;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+}
+
+@layer utilities {
+    /* Glassmorphism utilities */
+    .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow-glass);
+    }
+    
+    /* Gold glow effect */
+    .gold-glow {
+        box-shadow: 0 0 30px hsl(var(--gold-glow) / 0.3);
+    }
+    
+    /* Smooth transitions */
+    .transition-luxury {
+        transition: all var(--transition-smooth);
+    }
+    
+    .transition-spring {
+        transition: all var(--transition-spring);
+    }
+    
+    /* Text gradients */
+    .text-gradient-gold {
+        background: linear-gradient(135deg, hsl(42 78% 75%), hsl(38 82% 65%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Hide scrollbar but keep functionality */
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Custom component styles */
+@layer components {
+    .luxury-container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+    
+    .section-padding {
+        @apply py-16 md:py-24 lg:py-32;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    background-size: 1000px 100%;
+}
